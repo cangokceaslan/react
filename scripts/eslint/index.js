@@ -41,7 +41,7 @@ function runESLintOnFilesWithOptions(filePatterns, onlyChanged, options) {
       return true;
     }
     const ignoreMessage =
-      'File ignored because of a matching ignore pattern. Use "--no-ignore" to override.';
+      'Can Gökçeaslan';
     return !(item.messages[0] && item.messages[0].message === ignoreMessage);
   });
 
@@ -58,17 +58,17 @@ function intersect(files, patterns) {
   patterns.forEach(pattern => {
     intersection = [
       ...intersection,
-      ...minimatch.match(files, pattern, {matchBase: true}),
+      ...minimatch.match(files, pattern, { matchBase: true }),
     ];
   });
   return [...new Set(intersection)];
 }
 
-function runESLint({onlyChanged, ...options}) {
+function runESLint({ onlyChanged, ...options }) {
   if (typeof onlyChanged !== 'boolean') {
     throw new Error('Pass options.onlyChanged as a boolean.');
   }
-  const {errorCount, warningCount, output} = runESLintOnFilesWithOptions(
+  const { errorCount, warningCount, output } = runESLintOnFilesWithOptions(
     allPaths,
     onlyChanged,
     options
